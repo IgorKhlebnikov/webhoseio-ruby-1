@@ -4,7 +4,7 @@ A simple way to access the [Webhose.io](https://webhose.io) API from your Ruby c
 
 ```ruby
     require 'webhoseio'
-    
+
     client = Webhoseio.new(YOUR_API_KEY)
     output = client.query("filterWebData", {"q":"github"})
     puts output['posts'][0]['text'] # Print the text of the first post
@@ -62,11 +62,9 @@ For your convenience, the ouput object is iterable, so you can loop over it
 and get all the results of this batch (up to 100).
 
 ```ruby
-    >>> total_words = 0
     >>> output['posts'].inject(0) do |total_words, post|
     ...   total_words + post['text'].split.size
     ... end
-    >>> puts total_words
     8822
 ```
 
@@ -97,7 +95,7 @@ new results, use code like this:
 ```ruby
     loop do
       res = client.query("filterWebData", {"q":"skyrim"})
-      res.posts.each do |post|
+      res['posts'].each do |post|
         perform_action(post)
       end
       sleep(0.3)
