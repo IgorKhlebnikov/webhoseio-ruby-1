@@ -111,11 +111,12 @@ If you want to make repeated searches, performing an action whenever there are
 new results, use code like this:
 
 ```ruby
+    res = client.query("filterWebData", {"q":"skyrim"})
     loop do
-      res = client.query("filterWebData", {"q":"skyrim"})
       res['posts'].each do |post|
         perform_action(post)
       end
       sleep(0.3)
+      res = client.get_next
     end
 ```
