@@ -24,6 +24,24 @@ https://webhose.io/auth/signup, and then go into
 https://webhose.io/dashboard to see your token.
 
 
+Installing
+----------
+You can install from source:
+
+``` bash
+
+    $ git clone https://github.com/seenkoo/webhoseio-ruby
+    $ cd webhoseio-ruby
+    $ gem build webhoseio.gemspec
+    $ gem install ./webhoseio-*.gem
+
+ ```
+ Or use gem install:
+
+ ``` bash
+    $ gem install webhoseio
+ ```
+
 Use the API
 -----------
 
