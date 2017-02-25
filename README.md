@@ -1,8 +1,8 @@
 webhose.io client for Ruby
 ============================
 A simple way to access the [Webhose.io](https://webhose.io) API from your Ruby code
-```ruby
 
+```ruby
     require 'webhoseio'
     
     client = Webhoseio.new(YOUR_API_KEY)
@@ -12,7 +12,8 @@ A simple way to access the [Webhose.io](https://webhose.io) API from your Ruby c
 
     # Get the next batch of posts
     output = client.get_next()
-    puts output['posts'][0]['thread']['site'] # Print the site of the first post```
+    puts output['posts'][0]['thread']['site'] # Print the site of the first post
+```
 
 API Key
 -------
@@ -45,7 +46,6 @@ The first parameter the query() function accepts is the API endpoint string. Ava
 Now you can make a request and inspect the results:
 
 ```ruby
-
     >>> output = client.query("filterWebData", {"q":"github"})
     >>> output['totalResults']
     15565094
@@ -62,7 +62,6 @@ For your convenience, the ouput object is iterable, so you can loop over it
 and get all the results of this batch (up to 100).
 
 ```ruby
-
     >>> total_words = 0
     >>> output['posts'].inject(0) do |total_words, post|
     ...   total_words + post['text'].split.size
@@ -70,6 +69,7 @@ and get all the results of this batch (up to 100).
     >>> puts total_words
     8822
 ```
+
 Full documentation
 ------------------
 
@@ -94,8 +94,7 @@ Polling
 If you want to make repeated searches, performing an action whenever there are
 new results, use code like this:
 
-``` ruby
-
+```ruby
     loop do
       res = client.query("filterWebData", {"q":"skyrim"})
       res.posts.each do |post|
